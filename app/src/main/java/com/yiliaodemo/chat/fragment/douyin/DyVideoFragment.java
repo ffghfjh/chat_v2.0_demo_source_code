@@ -164,7 +164,9 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
     public void onDestroy() {
         Log.d("getVideo","onDestroy");
         super.onDestroy();
-        mVideoView.stopPlayback();
+        if(mVideoView!=null){
+            mVideoView.stopPlayback();
+        }
     }
 
     public void switchVideo(){
