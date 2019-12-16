@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="81dp"
+    android:layout_height="81dp"
+    android:background="@drawable/complain_background">
+
+    <TextView
+        android:id="@+id/report_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:text="@string/report"
+        android:textColor="@color/black_text"
+        android:textSize="14sp" />
+
+    <View
+        android:id="@+id/line_v"
+        style="@style/HorizontalDivideLine"
+        android:layout_above="@id/report_tv" />
+
+    <TextView
+        android:id="@+id/complain_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/line_v"
+        android:gravity="center_horizontal"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:text="@string/complain"
+        android:textColor="@color/black_text"
+        android:textSize="14sp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="281dp"
+            android:background="@drawable/cost_rank_back">
+
+            <!--上方筛选-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <!--日榜-->
+                <FrameLayout
+                    android:id="@+id/day_fl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/day_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/selector_rank_choose_image_background" />
+
+                    <TextView
+                        android:id="@+id/day_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/day_rank"
+                        android:textColor="@drawable/selector_rank_choose_text_color"
+                        android:textSize="13sp" />
+
+                </FrameLayout>
+
+                <!--周榜-->
+                <FrameLayout
+                    android:id="@+id/week_fl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/week_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/selector_rank_choose_image_background" />
+
+                    <TextView
+                        android:id="@+id/week_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/week_rank"
+                        android:textColor="@drawable/selector_rank_choose_text_color"
+                        android:textSize="13sp" />
+
+                </FrameLayout>
+
+                <!--月榜-->
+                <FrameLayout
+                    android:id="@+id/month_fl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/month_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/selector_rank_choose_image_background" />
+
+                    <TextView
+                        android:id="@+id/month_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/month_rank"
+                        android:textColor="@drawable/selector_rank_choose_text_color"
+                        android:textSize="13sp" />
+
+                </FrameLayout>
+
+                <!--总榜-->
+                <FrameLayout
+                    android:id="@+id/total_fl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/total_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/selector_rank_choose_image_background" />
+
+                    <TextView
+                        android:id="@+id/total_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/total_rank"
+                        android:textColor="@drawable/selector_rank_choose_text_color"
+                        android:textSize="13sp" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!--下方排名背景-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginStart="17dp"
+                android:background="@drawable/rank_second_back"
+                android:contentDescription="@null" />
+
+            <!--下方排名-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginStart="17dp"
+                android:orientation="horizontal">
+
+                <!--第三名-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="71dp">
+
+                        <ImageView
+                            android:layout_width="29dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/rank_three"
+                            android:contentDescription="@null" />
+
+                        <ImageView
+                            android:id="@+id/three_head_iv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/default_head_img"
+                            android:contentDescription="@null" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/three_nick_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/three_gold_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/red_fe2947"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/three_chat_number_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="9dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/gray_868686"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!--第一名-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="98dp">
+
+                        <ImageView
+                            android:layout_width="29dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/rank_one"
+                            android:contentDescription="@null" />
+
+                        <FrameLayout
+                            android:layout_width="77dp"
+                            android:layout_height="77dp"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/shape_rank_yellow_back">
+
+                            <ImageView
+                                android:id="@+id/one_head_iv"
+                                android:layout_width="71dp"
+                                android:layout_height="71dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/default_head_img"
+                                android:contentDescription="@null" />
+
+                        </FrameLayout>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/one_nick_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/one_gold_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/red_fe2947"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/one_chat_number_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="9dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/gray_868686"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <!--第二名-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="71dp">
+
+                        <ImageView
+                            android:layout_width="29dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/rank_two"
+                            android:contentDescription="@null" />
+
+                        <ImageView
+                            android:id="@+id/two_head_iv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/default_head_img"
+                            android:contentDescription="@null" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/two_nick_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/two_gold_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/red_fe2947"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/two_chat_number_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="9dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/gray_868686"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/content_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never" />
+
+        <TextView
+            android:id="@+id/no_more_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/no_more"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

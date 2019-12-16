@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <!--头部布局-->
+    <include
+        android:id="@+id/head"
+        layout="@layout/base_app_head" />
+
+    <!--内容布局（内容布局容器，加载进度条，加载失败布局）-->
+
+    <!--内容布局容器-->
+    <FrameLayout
+        android:id="@+id/base_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+    </FrameLayout>
+
+</LinearLayout>

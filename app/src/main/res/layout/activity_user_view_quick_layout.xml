@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <SurfaceView
+        android:id="@+id/video_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <!--中间动画-->
+    <FrameLayout
+        android:id="@+id/anim_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@anim/quick_anim" />
+
+        <TextView
+            android:id="@id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white_fefefe"
+            android:textSize="40sp" />
+
+    </FrameLayout>
+
+    <!--模糊遮罩-->
+    <ImageView
+        android:id="@id/cover_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fade_back"
+        android:contentDescription="@null" />
+
+    <!--上方信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--信息-->
+        <RelativeLayout
+            android:id="@+id/info_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone">
+
+            <!--头像-->
+            <FrameLayout
+                android:id="@id/aa"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_user_head_background">
+
+                <ImageView
+                    android:id="@id/head_iv"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <!--昵称 ID-->
+            <LinearLayout
+                android:id="@id/bb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/aa"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@id/nick_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white_fefefe"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@id/id_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white_fefefe"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!--关注-->
+            <TextView
+                android:id="@id/focus_tv"
+                android:layout_width="55dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toEndOf="@id/bb"
+                android:background="@drawable/shape_focus_text_button_background"
+                android:gravity="center"
+                android:text="@string/focus"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <!--提示-->
+        <TextView
+            android:id="@+id/notice_tv"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/red_80fe2947"
+            android:drawablePadding="15dp"
+            android:drawableStart="@drawable/notice_white"
+            android:gravity="center_vertical"
+            android:paddingEnd="0dp"
+            android:paddingStart="15dp"
+            android:text="@string/quick_fail"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!--下方信息 按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/down_info_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/city_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_fefefe"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/age_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/white_fefefe"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <!--个性签名-->
+        <TextView
+            android:id="@+id/sign_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white_fefefe"
+            android:textSize="13sp" />
+
+        <View
+            android:id="@+id/line_v"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:visibility="invisible" />
+
+        <!--2个按钮-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="39dp"
+            android:orientation="horizontal">
+
+            <!--切换-->
+            <ImageView
+                android:id="@+id/switch_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/switch_quick"
+                android:contentDescription="@null" />
+
+            <!--连通-->
+            <ImageView
+                android:id="@id/chat_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:background="@drawable/chat_quick"
+                android:contentDescription="@null" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--关闭-->
+    <ImageView
+        android:id="@id/close_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="9dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@null"
+        android:padding="10dp"
+        android:src="@drawable/cancel_white_big" />
+
+    <!--暂无速配主播-->
+    <TextView
+        android:id="@+id/no_anchor_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_anchor"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</FrameLayout>

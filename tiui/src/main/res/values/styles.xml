@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><!--Copyright (c) 2018 拓幻科技 - tillusory.cn. All rights reserved.-->
+<resources>
+
+    <style name="TiSeekBar">
+        <item name="android:max">100</item>
+        <item name="android:maxHeight">5dp</item>
+        <item name="android:minHeight">5dp</item>
+        <item name="android:progress">0</item>
+        <item name="android:thumb">@drawable/ic_ti_seek_bar_thumb</item>
+        <item name="android:progressDrawable">@drawable/bg_ti_seek_bar</item>
+    </style>
+
+    <style name="TiTextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@drawable/color_ti_white_blue</item>
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>

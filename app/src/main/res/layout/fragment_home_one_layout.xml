@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/videobg"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:layout_below="@id/top_main"
+        android:id="@+id/content_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--顶部-->
+    <LinearLayout
+        android:id="@+id/top_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <!--排行榜-->
+            <ImageView
+                android:id="@+id/category_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:contentDescription="@null"
+                android:paddingBottom="5dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/search_black" />
+
+            <HorizontalScrollView
+
+                android:alpha="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@id/category_iv">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <!--男粉-->
+                    <RelativeLayout
+                        android:id="@+id/fan_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:visibility="gone">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <TextView
+                                android:id="@+id/fan_big_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/male_fan"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/fan_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/male_fan"
+                                android:textColor="@color/white_fefefe"
+                                android:textSize="15sp" />
+
+                        </FrameLayout>
+
+                        <View
+                            android:id="@+id/fan_v"
+                            android:layout_width="20dp"
+                            android:layout_height="3dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/shape_home_indicator_back"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                    <!--关注-->
+                    <RelativeLayout
+                        android:id="@+id/focus_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <TextView
+                                android:id="@+id/focus_big_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/focus"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/focus_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/focus"
+                                android:textColor="@color/white_fefefe"
+                                android:textSize="15sp" />
+
+                        </FrameLayout>
+
+                        <View
+                            android:id="@+id/focus_v"
+                            android:layout_width="20dp"
+                            android:layout_height="3dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/shape_home_indicator_back"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+<!--                    &lt;!&ndash;推荐&ndash;&gt;-->
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/recommend_rl"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginStart="20dp">-->
+
+<!--                        <FrameLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_centerInParent="true">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/recommend_big_tv"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/recommend"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="20sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:visibility="gone" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/recommend_tv"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/recommend"-->
+<!--                                android:textColor="@color/white_fefefe"-->
+<!--                                android:textSize="15sp" />-->
+
+<!--                        </FrameLayout>-->
+
+<!--                        <View-->
+<!--                            android:id="@+id/recommend_v"-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="3dp"-->
+<!--                            android:layout_alignParentBottom="true"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:background="@drawable/shape_home_indicator_back"-->
+<!--                            android:visibility="gone" />-->
+
+<!--                    </RelativeLayout>-->
+
+<!--                    &lt;!&ndash;新人&ndash;&gt;-->
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/new_man_rl"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginStart="20dp">-->
+
+<!--                        <FrameLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_centerInParent="true">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/new_man_big_tv"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/new_man"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="20sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:visibility="gone" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/new_man_tv"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/new_man"-->
+<!--                                android:textColor="@color/white_fefefe"-->
+<!--                                android:textSize="15sp" />-->
+
+<!--                        </FrameLayout>-->
+
+<!--                        <View-->
+<!--                            android:id="@+id/new_man_v"-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="3dp"-->
+<!--                            android:layout_alignParentBottom="true"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:background="@drawable/shape_home_indicator_back"-->
+<!--                            android:visibility="gone" />-->
+
+<!--                    </RelativeLayout>-->
+
+                    <!--附近-->
+                    <RelativeLayout
+                        android:id="@+id/near_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <TextView
+                                android:id="@+id/near_big_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/near"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/near_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/near"
+                                android:textColor="@color/white_fefefe"
+                                android:textSize="15sp" />
+
+                        </FrameLayout>
+
+                        <View
+                            android:id="@+id/near_v"
+                            android:layout_width="20dp"
+                            android:layout_height="3dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/shape_home_indicator_back"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                    <!--视频-->
+                    <RelativeLayout
+                        android:id="@+id/video_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true">
+
+                            <TextView
+                                android:id="@+id/video_big_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/video_des_one"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/video_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/video_des_one"
+                                android:textColor="@color/white_fefefe"
+                                android:textSize="15sp" />
+
+                        </FrameLayout>
+
+                        <View
+                            android:id="@+id/video_v"
+                            android:layout_width="20dp"
+                            android:layout_height="3dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/shape_home_indicator_back"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_ebebeb" />
+
+    </LinearLayout>
+
+</RelativeLayout>

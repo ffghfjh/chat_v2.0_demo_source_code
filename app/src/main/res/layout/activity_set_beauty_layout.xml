@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--大视频-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@id/content_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--退出-->
+    <ImageView
+        android:id="@+id/finish_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="9dp"
+        android:contentDescription="@null"
+        android:padding="6dp"
+        android:src="@drawable/close_round" />
+
+    <!--退出-->
+    <ImageView
+        android:id="@+id/switch_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="9dp"
+        android:layout_marginTop="9dp"
+        android:contentDescription="@null"
+        android:padding="6dp"
+        android:src="@drawable/switch_white" />
+
+    <!--美颜美形-->
+
+</FrameLayout>

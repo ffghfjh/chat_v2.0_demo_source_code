@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_4f4f4f">
+
+    <!--放直播View-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--模糊背景-->
+    <ImageView
+        android:id="@+id/furry_cover_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/big_house_cover"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+    <!--开始直播页面-->
+    <include
+        layout="@layout/layout_big_house_start_live"
+        android:visibility="gone" />
+
+    <!--正在直播-->
+    <include
+        layout="@layout/layout_big_house_liveing"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/live_end_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/live_end"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</FrameLayout>

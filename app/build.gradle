@@ -1,0 +1,206 @@
+apply plugin: 'com.android.application'
+
+def keystorePropertiesFile = rootProject.file("/app/sign/demo_keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.yiliaodemo.chat"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 40
+        versionName "2.0.1"
+        multiDexEnabled true// dex突破65535的限制
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "40f7d4d87dd5a8397fc9af4a", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            v2SigningEnabled true
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+    buildTypes {
+        //测试环境
+        debug {
+            buildConfigField "boolean", "debug", "true"
+            buildConfigField "String", "rkey", "\"${AppKey}\""
+            //测试环境
+            //buildConfigField "String", "charset", "\"GB18030\""
+            //buildConfigField "String", "socketIp", "\"192.168.0.2\""
+            //buildConfigField "String", "hostAddress", "\"http://192.168.0.2:8080/chatApp/\""
+            //正式环境
+            buildConfigField "String", "charset", "\"UTF-8\""
+            //buildConfigField "String", "socketIp", "\"192.168.5.31\""
+            buildConfigField "String", "socketIp", "\"122.10.109.87\""
+            //buildConfigField "String", "hostAddress", "\"http://app.1-liao.c
+            buildConfigField "String", "hostAddress", "\"http://122.10.109.87:8080/demo_app_encrypt/\""
+            //buildConfigField "String", "hostAddress", "\"http://192.168.5.31:8080/chatApp/\""
+            //minifyEnabled true//混淆
+            //shrinkResources true //删除无效引用
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        //正式环境
+        release {
+            buildConfigField "String", "rkey", "\"${AppKey}\""
+            buildConfigField "boolean", "debug", "false"
+            buildConfigField "String", "charset", "\"UTF-8\""
+            buildConfigField "String", "socketIp", "\"106.15.88.38\""
+            buildConfigField "String", "hostAddress", "\"http://app.1-liao.cn/\""
+            minifyEnabled true//混淆
+            shrinkResources true //删除无效引用
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+
+dependencies {
+    implementation 'me.samlss:timomenu:1.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+
+    //google multi dex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //注解butter knife
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //沉浸式状态栏
+    implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    //glide 高斯模糊
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+
+    //fastJson
+    implementation 'com.alibaba:fastjson:1.2.34'
+
+    //recycler view
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    //zhy ok http utils
+    implementation 'com.zhy:okhttputils:2.6.2'
+
+    //smart refresh layout
+
+    //1.1.0 API改动过大，老用户升级需谨慎
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-7'
+
+    //没有使用特殊Header，可以不加这行
+
+    //知乎图片选择
+    implementation 'com.zhihu.android:matisse:0.5.1'
+
+    //LuBan图片压缩
+    implementation 'top.zibin:Luban:1.1.7'
+
+    //微信开放
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.4'
+
+    //QQ登录分享等sdk
+    implementation files('libs/open_sdk_r6008_lite.jar')
+
+    //u corp裁剪
+    api('com.github.yalantis:ucrop:2.2.2') {
+        exclude group: 'com.android.support'
+    }
+
+    //腾讯云
+    implementation files('libs/cos-android-sdk-5.4.6.jar')
+
+    //支付宝支付
+    implementation files('libs/alipaySdk-20180601.jar')
+
+    //Mina
+    implementation files('libs/mina-core-2.0.16.jar')
+
+    //PhotoView 查看图片
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+
+    //极光IM
+    implementation 'cn.jiguang.sdk:jpush:3.1.5'
+
+    // 此处以JPush 3.1.5 版本为例。
+
+    //极光推送
+    implementation 'cn.jiguang.sdk:jmessage:2.7.1'// 此处以JMessage 2.7.1 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.2.5'// 此处以JCore 1.2.5 版本为例。
+
+    //悬浮窗权限
+    implementation 'com.github.czy1121:settingscompat:1.1.4'
+
+    //二维码
+    implementation 'com.google.zxing:core:3.3.0'
+
+    //三体云
+    implementation(name: '3T_Native_SDK_for_Android_V2.1.0_Full(2019_04_02)', ext: 'aar')
+
+    //高德3D地图
+    implementation 'com.amap.api:3dmap:6.5.0'
+
+    //高德定位
+    implementation 'com.amap.api:location:4.3.0'
+
+    //高德搜索
+    implementation 'com.amap.api:search:6.5.0.1'
+
+    //七牛云播放器
+    implementation files('libs/pldroid-player-2.1.5.jar')
+
+    //cjt自定义可长按录视频camera
+    implementation 'cjt.library.wheel:camera:1.1.9'
+
+    //Android Material Design
+    implementation 'com.android.support:design:27.1.1'
+
+    //美颜
+    implementation project(':tiui')
+
+    //视频播放
+    implementation('com.github.dueeeke.dkplayer:dkplayer-java:2.5.2') {
+        exclude group: 'org.slf4j', module: "slf4j-api"
+    }
+    implementation('com.github.dueeeke.dkplayer:dkplayer-ui:2.5.2') {
+        exclude group: 'org.slf4j', module: "slf4j-api"
+    }
+    implementation('com.github.dueeeke.dkplayer:dkplayer-armv7a:2.5.2') {
+        exclude group: 'org.slf4j', module: "slf4j-api"
+    }
+    implementation('com.github.dueeeke.dkplayer:dkplayer-x86:2.5.3') {
+        exclude group: 'org.slf4j', module: "slf4j-api"
+    }
+}

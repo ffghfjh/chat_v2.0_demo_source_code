@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/living_layout_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--上方遮罩-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:background="@drawable/shape_cover_two_background" />
+
+    <!--上方信息-->
+    <LinearLayout
+        android:id="@+id/top_info_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
+
+        <!--头像 昵称-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_info_one_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!--头像-->
+            <ImageView
+                android:id="@+id/head_iv"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <!--昵称-->
+                <TextView
+                    android:id="@+id/nick_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="8"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    tools:ignore="SmallSp" />
+
+                <!--关注人数-->
+                <TextView
+                    android:id="@+id/focus_number_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="8"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:ignore="SmallSp" />
+
+            </LinearLayout>
+
+            <!--关注-->
+            <TextView
+                android:id="@+id/focus_tv"
+                android:layout_width="33dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/shape_focus_one_back"
+                android:gravity="center"
+                android:text="@string/focus"
+                android:textColor="@color/red_fe2947"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!--右边粉丝-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/top_user_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp" />
+
+            <!--总共-->
+            <TextView
+                android:id="@+id/total_number_tv"
+                android:layout_width="44dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/shape_total_number_back"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!--下方遮罩-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="279dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_cover_one_background" />
+
+    <!--下方文字等-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <!--中间礼物-->
+        <LinearLayout
+            android:id="@+id/gift_container_ll"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="30dp"
+            android:gravity="bottom"
+            android:orientation="vertical" />
+
+        <!--消息-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/message_rv"
+            android:layout_width="300dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="10dp" />
+
+        <!--按钮-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="6dp">
+
+            <!--输入框-->
+            <TextView
+                android:id="@+id/input_tv"
+                android:layout_width="150dp"
+                android:layout_height="36dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/shape_input_one_back"
+                android:gravity="center_vertical"
+                android:hint="@string/say_something"
+                android:paddingStart="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                tools:ignore="Autofill,RtlSymmetry" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--礼物-->
+                <ImageView
+                    android:id="@+id/gift_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gift_yellow"
+                    android:contentDescription="@null" />
+
+                <!--切换摄像头-->
+                <ImageView
+                    android:id="@+id/camera_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/big_room_camera"
+                    android:contentDescription="@null"
+                    android:visibility="gone" />
+
+                <!--礼物-->
+                <ImageView
+                    android:id="@+id/share_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/share_one"
+                    android:contentDescription="@null" />
+
+                <!--礼物-->
+                <ImageView
+                    android:id="@+id/live_close_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/close_one"
+                    android:contentDescription="@null" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

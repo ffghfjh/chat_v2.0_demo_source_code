@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_4d000000">
+
+    <!--大视频-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@id/content_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:id="@+id/big_cover_black_v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:visibility="gone" />
+
+    <!--下方操作部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--开始速配提示-->
+        <TextView
+            android:id="@+id/hint_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_video_text_back"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:textColor="@color/yellow_f9fb44"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!--对方关闭了摄像头-->
+        <TextView
+            android:id="@+id/have_off_camera_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shape_have_off_camera_back"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/have_off_camera"
+            android:gravity="center_vertical"
+            android:paddingBottom="3dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingTop="3dp"
+            android:text="@string/have_off_camera"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <!--麦克风  切换摄像头-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/micro_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/selector_micro_background"
+                android:contentDescription="@null"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/change_camera_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:layout_marginStart="100dp"
+                android:background="@drawable/change_camera"
+                android:contentDescription="@null"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!--计时-->
+        <TextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/zero"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <!--下方按钮  包括速配 以及几个按钮-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--开始/结束速配按钮-->
+            <TextView
+                android:id="@+id/start_quick_tv"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="49dp"
+                android:layout_marginEnd="38dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_verify_submit_background"
+                android:gravity="center"
+                android:text="@string/start_quick"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <!--小操作按钮 文字输入-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--小操作按钮-->
+                <LinearLayout
+                    android:id="@+id/little_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="60dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <!--左边3/4  按钮部分-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:orientation="horizontal">
+
+                        <!--切换摄像头-->
+                        <ImageView
+                            android:id="@+id/change_iv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:src="@drawable/camera_new"
+                            tools:ignore="NestedWeights" />
+
+                        <!--关闭摄像头-->
+                        <ImageView
+                            android:id="@+id/close_video_iv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:src="@drawable/selector_close_video_image"
+                            tools:ignore="NestedWeights" />
+
+                        <!--关闭麦克风-->
+                        <ImageView
+                            android:id="@+id/close_micro_iv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:src="@drawable/selector_close_micro_image"
+                            tools:ignore="NestedWeights" />
+
+                        <!--文字消息-->
+                        <ImageView
+                            android:id="@+id/message_iv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:src="@drawable/text_message"
+                            tools:ignore="NestedWeights" />
+
+                        <!--发送礼物-->
+                        <ImageView
+                            android:id="@+id/reward_iv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@null"
+                            android:src="@drawable/reward_red"
+                            tools:ignore="NestedWeights" />
+
+                    </LinearLayout>
+
+                    <!--右边1/4 挂断部分-->
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/hang_up_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="20dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/hang_up_small" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <!--输入部分-->
+                <LinearLayout
+                    android:id="@+id/input_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/input_et"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_chat_edit_text_back"
+                        android:inputType="text"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@null"
+                        android:textSize="14sp"
+                        tools:ignore="LabelFor" />
+
+                    <TextView
+                        android:id="@+id/btn_send"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/shape_send_text_back"
+                        android:contentDescription="@null"
+                        android:gravity="center"
+                        android:text="@string/send"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!--左上角信息-->
+    <LinearLayout
+        android:id="@id/info_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="43dp">
+
+            <!--头像-->
+            <FrameLayout
+                android:id="@id/aa"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_user_head_background">
+
+                <ImageView
+                    android:id="@id/head_iv"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="1dp"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <!--关注-->
+            <TextView
+                android:id="@id/focus_tv"
+                android:layout_width="30dp"
+                android:layout_height="14dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/shape_focus_small_text_background"
+                android:gravity="center"
+                android:text="@string/focus"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:visibility="gone"
+                tools:ignore="SmallSp" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@id/nick_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white_fefefe"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/verify_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/verify_quick"
+                    android:contentDescription="@null"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--年龄-->
+                <TextView
+                    android:id="@+id/age_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_blue_back"
+                    android:paddingBottom="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    tools:ignore="SmallSp" />
+
+                <!--职业-->
+                <TextView
+                    android:id="@+id/job_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/shape_yellow_back"
+                    android:paddingBottom="2dp"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    tools:ignore="SmallSp" />
+
+                <ImageView
+                    android:id="@+id/gold_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gold_one"
+                    android:contentDescription="@null"
+                    android:visibility="gone" />
+
+                <!--地区-->
+                <TextView
+                    android:id="@+id/city_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/white_fefefe"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--左上角主播速配时间-->
+    <LinearLayout
+        android:id="@+id/time_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/today_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/shape_time_text_background"
+            android:gravity="center_vertical"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/month_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/shape_time_text_background"
+            android:gravity="center_vertical"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!--文字聊天部分-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/text_list_rv"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="190dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/text_cover_v"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="190dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp" />
+
+    <!--礼物动画-->
+    <LinearLayout
+        android:id="@+id/gift_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_gift_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="60dp"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:id="@+id/gift_head_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/default_head_img"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/me"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:id="@+id/gift_des_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pink_ff32a0"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/gift_iv"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="-50dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/gift_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="5dp"
+            android:text="@string/multi_one"
+            android:textColor="@color/yellow_fff000"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <!--远端视图-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@id/remote_fl"
+        android:layout_width="92dp"
+        android:layout_height="172dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp" />
+
+    <View
+        android:id="@+id/small_cover_black_v"
+        android:layout_width="92dp"
+        android:layout_height="172dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        android:visibility="gone" />
+
+    <!--关闭按钮-->
+    <ImageView
+        android:id="@+id/finish_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@null"
+        android:padding="10dp"
+        android:src="@drawable/cancel_white_big" />
+
+
+</FrameLayout>

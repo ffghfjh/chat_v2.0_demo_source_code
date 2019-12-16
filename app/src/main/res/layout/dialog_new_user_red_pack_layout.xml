@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/close_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="15dp"
+            android:contentDescription="@null"
+            android:padding="8dp"
+            android:src="@drawable/dialog_close" />
+
+        <RelativeLayout
+            android:layout_width="331dp"
+            android:layout_height="328dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/new_red_pack_ground">
+
+            <ImageView
+                android:id="@+id/get_now_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/get_now"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/money_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/get_now_iv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:includeFontPadding="false"
+                android:text="@string/one_hundred_eight_rmb"
+                android:textColor="@color/yellow_ffee5e"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/high_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/money_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:text="@string/high_money_des"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/high_tv"
+                android:layout_centerHorizontal="true"
+                android:text="@string/new_user_use"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

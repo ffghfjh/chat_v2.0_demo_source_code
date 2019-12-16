@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_divine_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/report_reason"
+        android:textColor="@color/black_text"
+        android:textSize="15sp" />
+
+    <!--下方理由-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/can_not_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/can_not_see"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/can_not_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_report_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/bad_attitude_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bad_attitude"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/bad_attitude_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_report_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/bad_adver_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bad_adver"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/bad_adver_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_report_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/sex_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sex"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/sex_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_report_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/against_low_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/against_low"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/against_low_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_report_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:paddingBottom="12.5dp"
+        android:paddingTop="12.5dp"
+        android:text="@string/upload_evidence"
+        android:textColor="@color/black_text"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/evidence_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/upload_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/report_upload_evidence"
+            android:contentDescription="@null" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/report_tv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape_report_text_button_background"
+        android:gravity="center"
+        android:text="@string/report_des"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_select_head_image_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:contentDescription="@null"
+            android:text="@string/scan_down_code"
+            android:textColor="@color/red_f31269"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/code_iv"
+            android:layout_width="222dp"
+            android:layout_height="222dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@null" />
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:id="@+id/save_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="11dp"
+            android:paddingTop="11dp"
+            android:text="@string/save_to_gallery"
+            android:textColor="@color/red_f31269"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/shape_special_url_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/my_special_url"
+            android:textColor="@color/red_f31269"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/url_tv"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="14dp"
+            android:background="@drawable/shape_url_dash_background"
+            android:gravity="center"
+            android:textColor="@color/gray_666666"
+            android:textSize="14sp" />
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/copy_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="11dp"
+            android:paddingTop="11dp"
+            android:text="@string/click_copy"
+            android:textColor="@color/red_f31269"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

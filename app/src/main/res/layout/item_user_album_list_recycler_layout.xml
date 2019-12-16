@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_fl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center"
+        android:background="@drawable/default_back_small"
+        android:contentDescription="@null"
+        android:scaleType="center" />
+
+    <ImageView
+        android:id="@+id/image_iv"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:contentDescription="@null" />
+
+    <!--遮罩-->
+    <View
+        android:id="@+id/cover_v"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:background="@color/black_333f3b48"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/lock_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/lock_new"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/play_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/video_new"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/checking"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:visibility="gone"
+        tools:ignore="SmallSp" />
+
+</FrameLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/shape_select_head_image_background">
+
+        <!--关闭-->
+        <ImageView
+            android:id="@+id/close_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@null"
+            android:padding="5dp"
+            android:src="@drawable/close_black" />
+
+        <!--三张-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/shoot_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="12dp"
+                android:drawableTop="@drawable/shoot_red"
+                android:gravity="center_horizontal"
+                android:text="@string/shoot"
+                android:textColor="@color/black_353553"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/album_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="12dp"
+                android:drawableTop="@drawable/album"
+                android:gravity="center_horizontal"
+                android:text="@string/album"
+                android:textColor="@color/black_353553"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/other_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="12dp"
+                android:drawableTop="@drawable/other"
+                android:gravity="center_horizontal"
+                android:text="@string/other"
+                android:textColor="@color/black_353553"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</FrameLayout>

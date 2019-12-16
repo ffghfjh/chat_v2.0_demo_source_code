@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--推荐列表-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recommend_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+        <!--滑动banner-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/banner_rv"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginStart="2.5dp"
+            android:layout_marginTop="5dp" />
+
+        <!--官方热门-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/fire"
+            android:gravity="center_vertical"
+            android:paddingStart="2dp"
+            android:text="@string/offcial_hot"
+            android:textColor="@color/red_fe2947"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
