@@ -106,7 +106,7 @@ public class PhotoFragment extends BaseFragment {
                 }
 
                 final PhotoViewAttacher attacher = new PhotoViewAttacher(mContentPv);
-                Glide.with(this).load(fileBean.t_file_url).crossFade()
+                Glide.with(getActivity()).load(fileBean.t_file_url).crossFade()
                         .into(new GlideDrawableImageViewTarget(mContentPv) {
                             @Override
                             public void onResourceReady(GlideDrawable resource,

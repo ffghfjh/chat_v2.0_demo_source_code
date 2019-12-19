@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.yiliaodemo.chat"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 40
         versionName "2.0.1"
         multiDexEnabled true// dex突破65535的限制
@@ -81,6 +81,8 @@ android {
 
 
 dependencies {
+
+
 
     implementation 'me.samlss:timomenu:1.0.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -191,6 +193,9 @@ dependencies {
     implementation 'cjt.library.wheel:camera:1.1.9'
 
     //Android Material Design
+    // https://mvnrepository.com/artifact/androidx.multidex/multidex
+    implementation group: 'androidx.multidex', name: 'multidex', version: '2.0.0'
+
     //implementation 'com.android.support:design:27.1.1'
     implementation 'com.google.android.material:material:1.0.0'
     //美颜
