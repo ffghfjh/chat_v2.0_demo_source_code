@@ -5,15 +5,16 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId "com.yiliaodemo.chat"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 40
         versionName "2.0.1"
         multiDexEnabled true// dex突破65535的限制
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
             abiFilters "armeabi", "armeabi-v7a"
@@ -83,15 +84,17 @@ dependencies {
 
     implementation 'me.samlss:timomenu:1.0.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    //implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    ///implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+//    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
     testImplementation 'junit:junit:4.12'
 
     //google multi dex
-    implementation 'com.android.support:multidex:1.0.3'
+    //implementation 'com.android.support:multidex:1.0.3'
 
     //注解butter knife
     implementation 'com.jakewharton:butterknife:8.4.0'
@@ -110,7 +113,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.2.34'
 
     //recycler view
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    //implementation 'com.android.support:recyclerview-v7:28.1.1'
+// https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
+    implementation group: 'androidx.recyclerview', name: 'recyclerview', version: '1.1.0'
 
     //zhy ok http utils
     implementation 'com.zhy:okhttputils:2.6.2'
@@ -186,8 +191,8 @@ dependencies {
     implementation 'cjt.library.wheel:camera:1.1.9'
 
     //Android Material Design
-    implementation 'com.android.support:design:27.1.1'
-
+    //implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.android.material:material:1.0.0'
     //美颜
 
     //视频播放

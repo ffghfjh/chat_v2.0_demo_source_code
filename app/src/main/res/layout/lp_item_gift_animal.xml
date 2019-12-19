@@ -86,6 +86,6 @@
         app:outerShadowRadius="1"
         app:strokeColor="#f15353"
         app:strokeJoinStyle="round"
-        app:strokeWidth="1" />
+        app:strokeWidth1="1" />
 
 </LinearLayout>

@@ -1,7 +1,6 @@
 package com.yiliaodemo.chat.activity;
 
 import android.graphics.Bitmap;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.yiliaodemo.chat.R;
 import com.yiliaodemo.chat.base.BaseActivity;

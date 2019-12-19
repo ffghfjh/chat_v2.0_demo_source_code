@@ -6,7 +6,7 @@
     android:background="@color/black_4d000000">
 
     <!--大视频-->
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@id/content_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -434,7 +434,7 @@
     </LinearLayout>
 
     <!--文字聊天部分-->
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/text_list_rv"
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -528,7 +528,7 @@
     </LinearLayout>
 
     <!--远端视图-->
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@id/remote_fl"
         android:layout_width="92dp"
         android:layout_height="172dp"

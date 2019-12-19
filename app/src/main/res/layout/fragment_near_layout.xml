@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:visibility="visible">
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/content_vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

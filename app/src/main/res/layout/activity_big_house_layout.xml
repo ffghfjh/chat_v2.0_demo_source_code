@@ -5,7 +5,7 @@
     android:background="@color/gray_4f4f4f">
 
     <!--放直播View-->
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

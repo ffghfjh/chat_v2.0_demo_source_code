@@ -3,11 +3,13 @@ package com.yiliaodemo.chat.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 
 /*
  * Copyright (C) 2018
@@ -21,7 +23,7 @@ import android.util.AttributeSet;
  * 修改描述：
  * 修改日期
  */
-public class ExpandTextView extends android.support.v7.widget.AppCompatTextView {
+public class ExpandTextView extends AppCompatTextView {
 
     /**
      * true：展开，false：收起

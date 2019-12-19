@@ -1,7 +1,8 @@
 package com.yiliaodemo.chat.banner;
 
-import android.support.v4.view.ViewPager;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 public class ScaleYTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.9F;

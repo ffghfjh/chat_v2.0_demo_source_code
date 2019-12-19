@@ -1,11 +1,13 @@
 package com.yiliaodemo.chat.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.NestedScrollView;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
+
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 
 /*
  * Copyright (C) 2018

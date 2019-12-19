@@ -49,7 +49,7 @@
         <attr name="outerShadowDy" format="float" />
         <attr name="typeface" format="string" />
         <attr name="foreground" format="reference|color" />
-        <attr name="strokeWidth" format="float" />
+        <attr name="strokeWidth1" format="float" />
         <attr name="strokeMiter" format="float" />
         <attr name="strokeColor" format="color" />
         <attr name="strokeJoinStyle">

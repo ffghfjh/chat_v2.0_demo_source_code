@@ -1,10 +1,11 @@
 package com.yiliaodemo.chat.activity;
 
-import android.support.constraint.ConstraintLayout;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wushuangtech.bean.TTTVideoFrame;
 import com.wushuangtech.library.Constants;
