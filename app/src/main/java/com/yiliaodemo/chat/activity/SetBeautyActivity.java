@@ -18,9 +18,7 @@ import com.yiliaodemo.chat.util.LogUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.tillusory.sdk.TiSDKManager;
-import cn.tillusory.sdk.bean.TiRotation;
-import cn.tillusory.tiui.TiPanelLayout;
+
 
 import static com.wushuangtech.library.Constants.CHANNEL_PROFILE_LIVE_BROADCASTING;
 import static com.wushuangtech.library.Constants.CLIENT_ROLE_ANCHOR;
@@ -47,8 +45,8 @@ public class SetBeautyActivity extends BaseActivity {
     @BindView(R.id.content_fl)
     ConstraintLayout mContentFl;
 
-    //美颜
-    private TiSDKManager mTiSDKManager;
+//    //美颜
+//    private TiSDKManager mTiSDKManager;
     //TTT视频聊天相关
     private TTTRtcEngine mTttRtcEngine;
 
@@ -72,10 +70,10 @@ public class SetBeautyActivity extends BaseActivity {
      * 初始化
      */
     private void initStart() {
-        mTiSDKManager = new TiSDKManager();
-        addContentView(new TiPanelLayout(this).init(mTiSDKManager),
-                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT));
+//        mTiSDKManager = new TiSDKManager();
+//        addContentView(new TiPanelLayout(this).init(mTiSDKManager),
+//                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                        ViewGroup.LayoutParams.MATCH_PARENT));
 
         mTttRtcEngine = TTTRtcEngine.create(getApplicationContext(), Constant.TTT_APP_ID, true,
                 new TTTRtcEngineEventHandler() {
@@ -98,10 +96,10 @@ public class SetBeautyActivity extends BaseActivity {
                     @Override
                     public void onLocalVideoFrameCaptured(TTTVideoFrame frame) {
                         super.onLocalVideoFrameCaptured(frame);
-                        if (mTiSDKManager != null) {
-                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
-                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
-                        }
+//                        if (mTiSDKManager != null) {
+//                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
+//                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
+//                        }
                     }
 
                 });
@@ -160,9 +158,9 @@ public class SetBeautyActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mTiSDKManager != null) {
-            mTiSDKManager.destroy();
-        }
+//        if (mTiSDKManager != null) {
+//            mTiSDKManager.destroy();
+//        }
     }
 
 }

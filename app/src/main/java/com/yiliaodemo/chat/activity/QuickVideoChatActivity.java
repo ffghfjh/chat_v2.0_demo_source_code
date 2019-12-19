@@ -97,8 +97,8 @@ import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.android.api.options.MessageSendingOptions;
 import cn.jpush.im.api.BasicCallback;
-import cn.tillusory.sdk.TiSDKManager;
-import cn.tillusory.sdk.bean.TiRotation;
+//import cn.tillusory.sdk.TiSDKManager;
+//import cn.tillusory.sdk.bean.TiRotation;
 import okhttp3.Call;
 
 import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
@@ -234,8 +234,8 @@ public class QuickVideoChatActivity extends BaseActivity {
     private MediaPlayer mPlayer;
     //文字聊天
     private VideoChatTextRecyclerAdapter mTextRecyclerAdapter;
-    //美颜
-    private TiSDKManager mTiSDKManager;
+//    //美颜
+//    private TiSDKManager mTiSDKManager;
 
     @Override
     protected View getContentView() {
@@ -337,7 +337,7 @@ public class QuickVideoChatActivity extends BaseActivity {
      */
     private void initHelper() {
         //生成默认参数渲染器
-        mTiSDKManager = new TiSDKManager();
+//        mTiSDKManager = new TiSDKManager();
         mTttRtcEngine = TTTRtcEngine.create(getApplicationContext(), Constant.TTT_APP_ID, true,
                 new TTTRtcEngineEventHandler() {
                     @Override
@@ -461,10 +461,10 @@ public class QuickVideoChatActivity extends BaseActivity {
                     @Override
                     public void onLocalVideoFrameCaptured(TTTVideoFrame frame) {
                         super.onLocalVideoFrameCaptured(frame);
-                        if (mTiSDKManager != null) {
-                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
-                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
-                        }
+//                        if (mTiSDKManager != null) {
+//                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
+//                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
+//                        }
                     }
                 });
         if (mTttRtcEngine != null) {
@@ -576,9 +576,9 @@ public class QuickVideoChatActivity extends BaseActivity {
 
                 @Override
                 public void surfaceDestroyed(SurfaceHolder holder) {
-                    if (mTiSDKManager != null) {
-                        mTiSDKManager.destroy();
-                    }
+//                    if (mTiSDKManager != null) {
+//                        mTiSDKManager.destroy();
+//                    }
                 }
             });
             if (mFromType == Constant.FROM_ACTOR) {
@@ -1932,9 +1932,9 @@ public class QuickVideoChatActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         try {
-            if (mTiSDKManager != null) {
-                mTiSDKManager.destroy();
-            }
+//            if (mTiSDKManager != null) {
+//                mTiSDKManager.destroy();
+//            }
             if (mTimeRunnable != null) {
                 mTimeRunnable = null;
             }

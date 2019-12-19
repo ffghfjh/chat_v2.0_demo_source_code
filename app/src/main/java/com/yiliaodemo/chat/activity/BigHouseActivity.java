@@ -107,9 +107,9 @@ import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.android.api.options.MessageSendingOptions;
 import cn.jpush.im.api.BasicCallback;
-import cn.tillusory.sdk.TiSDKManager;
-import cn.tillusory.sdk.bean.TiRotation;
-import cn.tillusory.tiui.view.TiBeautyView;
+//import cn.tillusory.sdk.TiSDKManager;
+//import cn.tillusory.sdk.bean.TiRotation;
+//import cn.tillusory.tiui.view.TiBeautyView;
 import okhttp3.Call;
 
 import static android.view.View.GONE;
@@ -156,9 +156,9 @@ public class BigHouseActivity extends BaseActivity {
     //封面图
     @BindView(R.id.cover_iv)
     ImageView mCoverIv;
-    //美颜UI
-    @BindView(R.id.tiBeautyTrimView)
-    TiBeautyView mTiBeautyView;//底部
+//    //美颜UI
+//    @BindView(R.id.tiBeautyTrimView)
+//    TiBeautyView mTiBeautyView;//底部
     @BindView(R.id.start_bottom_ll)
     LinearLayout mStartBottomLl;
     //----------正在直播页面-------------
@@ -191,8 +191,8 @@ public class BigHouseActivity extends BaseActivity {
     @BindView(R.id.top_info_ll)
     LinearLayout mTopInfoLl;
 
-    //美颜
-    private TiSDKManager mTiSDKManager;
+//    //美颜
+//    private TiSDKManager mTiSDKManager;
     //视频聊天相关
     private TTTRtcEngine mTttRtcEngine;
     //头部用户列表
@@ -266,15 +266,15 @@ public class BigHouseActivity extends BaseActivity {
             mStartLiveFl.setVisibility(VISIBLE);
             //显示切换摄像头
             mCameraIv.setVisibility(VISIBLE);
-            //初始化美颜
-            mTiBeautyView.init(mTiSDKManager);
+//            //初始化美颜
+//            mTiBeautyView.init(mTiSDKManager);
             //设置触摸关闭美颜
             mStartLiveFl.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     v.performClick();
                     mStartBottomLl.setVisibility(View.VISIBLE);
-                    mTiBeautyView.setVisibility(GONE);
+//                    mTiBeautyView.setVisibility(GONE);
                     return false;
                 }
             });
@@ -318,7 +318,7 @@ public class BigHouseActivity extends BaseActivity {
      */
     private void initTTT() {
         //生成默认参数渲染器
-        mTiSDKManager = new TiSDKManager();
+//        mTiSDKManager = new TiSDKManager();
         mTttRtcEngine = TTTRtcEngine.create(getApplicationContext(), Constant.TTT_APP_ID, false,
                 new TTTRtcEngineEventHandler() {
                     @Override
@@ -390,10 +390,10 @@ public class BigHouseActivity extends BaseActivity {
                     @Override
                     public void onLocalVideoFrameCaptured(TTTVideoFrame frame) {
                         super.onLocalVideoFrameCaptured(frame);
-                        if (mTiSDKManager != null) {
-                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
-                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
-                        }
+//                        if (mTiSDKManager != null) {
+//                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
+//                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
+//                        }
                     }
 
                     @Override
@@ -492,9 +492,9 @@ public class BigHouseActivity extends BaseActivity {
 
                     @Override
                     public void surfaceDestroyed(SurfaceHolder holder) {
-                        if (mTiSDKManager != null) {
-                            mTiSDKManager.destroy();
-                        }
+//                        if (mTiSDKManager != null) {
+//                            mTiSDKManager.destroy();
+//                        }
                     }
                 });
             }
@@ -548,7 +548,7 @@ public class BigHouseActivity extends BaseActivity {
             }
             case R.id.beauty_tv: {//开始直播页面,设置美颜,开启美颜面板
                 mStartBottomLl.setVisibility(GONE);
-                mTiBeautyView.setVisibility(VISIBLE);
+//                mTiBeautyView.setVisibility(VISIBLE);
                 break;
             }
             case R.id.camera_iv:
@@ -882,9 +882,9 @@ public class BigHouseActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         try {
-            if (mTiSDKManager != null) {
-                mTiSDKManager.destroy();
-            }
+//            if (mTiSDKManager != null) {
+//                mTiSDKManager.destroy();
+//            }
             //注销消息接收
             JMessageClient.unRegisterEventReceiver(BigHouseActivity.this);
             //释放礼物

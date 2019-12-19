@@ -686,35 +686,35 @@
             android:layout_marginStart="15dp"
             android:background="@color/gray_ebebeb" />
 
-        <!--美颜设置-->
-        <RelativeLayout
-            android:id="@+id/beauty_rl"
-            android:layout_width="match_parent"
-            android:layout_height="55dp">
+<!--        &lt;!&ndash;美颜设置&ndash;&gt;-->
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/beauty_rl"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="55dp">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
-                android:drawablePadding="11dp"
-                android:drawableStart="@drawable/beauty"
-                android:gravity="center_vertical"
-                android:text="@string/beauty_set"
-                android:textColor="@color/black_333333"
-                android:textSize="15sp"
-                tools:ignore="RelativeOverlap" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:drawablePadding="11dp"-->
+<!--                android:drawableStart="@drawable/beauty"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="@string/beauty_set"-->
+<!--                android:textColor="@color/black_333333"-->
+<!--                android:textSize="15sp"-->
+<!--                tools:ignore="RelativeOverlap" />-->
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/arrow_black_new"
-                android:contentDescription="@null" />
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:background="@drawable/arrow_black_new"-->
+<!--                android:contentDescription="@null" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <View
             android:layout_width="match_parent"

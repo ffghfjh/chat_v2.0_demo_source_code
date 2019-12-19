@@ -237,9 +237,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         //排行榜
         ImageView rank_iv = view.findViewById(R.id.rank_iv);
         rank_iv.setOnClickListener(this);
-        //美颜
-        View beauty_rl = view.findViewById(R.id.beauty_rl);
-        beauty_rl.setOnClickListener(this);
+//        //美颜
+//        View beauty_rl = view.findViewById(R.id.beauty_rl);
+//        beauty_rl.setOnClickListener(this);
 
         //只有主播有动态
         if (getUserRole() == 1) {
@@ -722,11 +722,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             }
-            case R.id.beauty_rl: {//美颜
-                Intent intent = new Intent(mContext, SetBeautyActivity.class);
-                startActivity(intent);
-                break;
-            }
+//            case R.id.beauty_rl: {//美颜
+//                Intent intent = new Intent(mContext, SetBeautyActivity.class);
+//                startActivity(intent);
+//                break;
+//            }
         }
     }
 

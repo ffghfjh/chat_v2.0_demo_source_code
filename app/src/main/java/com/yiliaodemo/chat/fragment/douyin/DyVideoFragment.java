@@ -121,6 +121,7 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
      * 播放视频
      */
     private void playVideo(int position, View view) {
+        Log.d("palyVideo","播放视频1");
         stopView=view.findViewById(R.id.paly_stop);
         stopView.setVisibility(View.GONE);
         if (view != null) {
@@ -170,12 +171,7 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
     }
 
     public void switchVideo(){
-        if(stopView!=null){
-            stopView.setVisibility(View.VISIBLE);
-        }
-        if(mVideoView!=null){
-            this.mVideoView.pause();
-        }
+       releaseVideo(getView());
     }
 
     /**

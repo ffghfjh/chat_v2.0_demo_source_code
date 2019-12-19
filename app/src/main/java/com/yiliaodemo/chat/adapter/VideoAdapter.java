@@ -64,6 +64,7 @@ import com.yiliaodemo.chat.helper.ImageLoadHelper;
 import com.yiliaodemo.chat.helper.SharedPreferenceHelper;
 import com.yiliaodemo.chat.layoutmanager.ViewPagerLayoutManager;
 import com.yiliaodemo.chat.listener.OnViewPagerListener;
+import com.yiliaodemo.chat.listener.SingleDoubleClickListener;
 import com.yiliaodemo.chat.net.AjaxCallback;
 import com.yiliaodemo.chat.net.NetCode;
 import com.yiliaodemo.chat.util.DevicesUtil;
@@ -224,6 +225,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         holder.videoView.setPlayerConfig(playerConfig);
         holder.videoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP);
         holder.videoView.start();
+        Log.d("palyVideo","播放视频2");
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("userId", getUserId());
         paramMap.put("coverConsumeUserId", String.valueOf(authorId));
@@ -396,9 +398,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                                 }
                             }
                         });
-                        holder.videoView.setOnClickListener(new View.OnClickListener() {
+                        holder.videoView.setOnTouchListener(new SingleDoubleClickListener(new SingleDoubleClickListener.MyClickCallBack() {
                             @Override
-                            public void onClick(View v) {
+                            public void oneClick() {
                                 Log.d("getVideo","点击");
                                 if(holder.videoView.isPlaying()){
                                     holder.videoView.pause();
@@ -408,7 +410,18 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                                     holder.videoView.start();
                                 }
                             }
-                        });
+
+                            @Override
+                            public void doubleClick() {
+                                if (mActorId > 0) {
+                                    if (!holder.mLoveTv.isSelected()) {//没有点赞过
+                                        addLike(holder);
+                                    } else {
+                                        cancelLike(holder);
+                                    }
+                                }
+                            }
+                        }));
                         holder.stopBtn.setVisibility(View.GONE);
                     }
                 }else {

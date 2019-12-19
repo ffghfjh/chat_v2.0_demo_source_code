@@ -94,8 +94,8 @@ import cn.jpush.im.android.api.model.Message;
 import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.android.api.options.MessageSendingOptions;
 import cn.jpush.im.api.BasicCallback;
-import cn.tillusory.sdk.TiSDKManager;
-import cn.tillusory.sdk.bean.TiRotation;
+//import cn.tillusory.sdk.TiSDKManager;
+//import cn.tillusory.sdk.bean.TiRotation;
 import okhttp3.Call;
 
 import static com.wushuangtech.library.Constants.CHANNEL_PROFILE_LIVE_BROADCASTING;
@@ -218,7 +218,7 @@ public class VideoChatOneActivity extends BaseActivity {
     //文字聊天
     private VideoChatTextRecyclerAdapter mTextRecyclerAdapter;
     //美颜
-    private TiSDKManager mTiSDKManager;
+//    private TiSDKManager mTiSDKManager;
 
     @Override
     protected View getContentView() {
@@ -397,7 +397,7 @@ public class VideoChatOneActivity extends BaseActivity {
      */
     private void initHelper() {
         //生成默认参数渲染器
-        mTiSDKManager = new TiSDKManager();
+//        mTiSDKManager = new TiSDKManager();
         mTttRtcEngine = TTTRtcEngine.create(getApplicationContext(), Constant.TTT_APP_ID, false,
                 new TTTRtcEngineEventHandler() {
                     @Override
@@ -582,10 +582,10 @@ public class VideoChatOneActivity extends BaseActivity {
                     @Override
                     public void onLocalVideoFrameCaptured(TTTVideoFrame frame) {
                         super.onLocalVideoFrameCaptured(frame);
-                        if (mTiSDKManager != null) {
-                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
-                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
-                        }
+//                        if (mTiSDKManager != null) {
+//                            frame.textureID = mTiSDKManager.renderTexture2D(frame.textureID, frame.stride,
+//                                    frame.height, TiRotation.CLOCKWISE_ROTATION_0, true);
+//                        }
                     }
 
                 });
@@ -629,9 +629,9 @@ public class VideoChatOneActivity extends BaseActivity {
 
                 @Override
                 public void surfaceDestroyed(SurfaceHolder holder) {
-                    if (mTiSDKManager != null) {
-                        mTiSDKManager.destroy();
-                    }
+//                    if (mTiSDKManager != null) {
+//                        mTiSDKManager.destroy();
+//                    }
                 }
             });
         } catch (Exception e) {
@@ -784,9 +784,9 @@ public class VideoChatOneActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         try {
-            if (mTiSDKManager != null) {
-                mTiSDKManager.destroy();
-            }
+//            if (mTiSDKManager != null) {
+//                mTiSDKManager.destroy();
+//            }
             if (mTimeRunnable != null) {
                 mTimeRunnable = null;
             }

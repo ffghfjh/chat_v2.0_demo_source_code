@@ -10,7 +10,7 @@ import com.yiliaodemo.chat.helper.SharedPreferenceHelper;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.im.android.api.JMessageClient;
-import cn.tillusory.sdk.TiSDK;
+//import cn.tillusory.sdk.TiSDK;
 
 /*
  * Copyright (C) 2018
@@ -52,7 +52,7 @@ public class AppManager extends Application {
         JPushInterface.init(this);
         JMessageClient.init(this, false);
         //离线鉴权初始化方法
-        TiSDK.init(Constant.TI_KEY, this);
+//        TiSDK.init(Constant.TI_KEY, this);
     }
 
     public ChatUserInfo getUserInfo() {
