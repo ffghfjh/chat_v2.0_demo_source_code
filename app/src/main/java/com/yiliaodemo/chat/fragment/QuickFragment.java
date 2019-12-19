@@ -2,11 +2,12 @@ package com.yiliaodemo.chat.fragment;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.VideoView;
+
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yiliaodemo.chat.R;
 import com.yiliaodemo.chat.adapter.UserRecyclerAdapter;

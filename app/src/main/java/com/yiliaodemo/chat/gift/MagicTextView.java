@@ -16,10 +16,11 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Pair;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.yiliaodemo.chat.R;
 
@@ -103,7 +104,7 @@ public class MagicTextView extends AppCompatTextView {
             }
 
             if(a.hasValue(R.styleable.MagicTextView_strokeColor)){
-                float strokeWidth = a.getFloat(R.styleable.MagicTextView_strokeWidth, 1);
+                float strokeWidth = a.getFloat(R.styleable.MagicTextView_strokeWidth1, 1);
                 int strokeColor = a.getColor(R.styleable.MagicTextView_strokeColor, 0xff000000);
                 float strokeMiter = a.getFloat(R.styleable.MagicTextView_strokeMiter, 10);
                 switch(a.getInt(R.styleable.MagicTextView_strokeJoinStyle, 0)){

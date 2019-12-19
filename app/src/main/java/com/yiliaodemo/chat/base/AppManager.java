@@ -2,7 +2,6 @@ package com.yiliaodemo.chat.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
 
 import com.yiliaodemo.chat.bean.ChatUserInfo;
 import com.yiliaodemo.chat.constant.Constant;
@@ -40,7 +39,7 @@ public class AppManager extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install(base);
+        //MultiDex.install(base);
     }
 
     @Override

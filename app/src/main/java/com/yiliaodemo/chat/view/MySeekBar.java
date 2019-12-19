@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 
+import androidx.appcompat.widget.AppCompatSeekBar;
+
 import com.yiliaodemo.chat.R;
 
 
@@ -24,7 +26,7 @@ import com.yiliaodemo.chat.R;
  * 修改描述：
  * 修改日期
  */
-public class MySeekBar extends android.support.v7.widget.AppCompatSeekBar {
+public class MySeekBar extends AppCompatSeekBar {
 
     private Paint paint;
     private Drawable mThumb;
