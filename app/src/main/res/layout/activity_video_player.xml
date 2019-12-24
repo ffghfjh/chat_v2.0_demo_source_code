@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.dy.VideoPlayerActivity">
-    <com.dueeeke.videoplayer.player.IjkVideoView
+    <com.dueeeke.videoplayer.player.VideoView
         android:id="@+id/video_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,5 +17,5 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/play">
         </ImageView>
-    </com.dueeeke.videoplayer.player.IjkVideoView>
+    </com.dueeeke.videoplayer.player.VideoView>
 </LinearLayout>

@@ -5,19 +5,30 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    signingConfigs {
+        realease {
+            storeFile file('C:\\Users\\dengshilin\\Desktop\\chat_v2.0_demo_source_code\\app\\sign\\chat_demo.jks')
+            storePassword 'demochat!@#user123'
+            keyAlias = 'demochat'
+            keyPassword 'demochat!@#user123'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.yiliaodemo.chat"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 40
-        versionName "2.0.1"
+        versionName "2.2.5"
         multiDexEnabled true// dex突破65535的限制
         //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi-v7a"
         }
 
         manifestPlaceholders = [
@@ -27,18 +38,10 @@ android {
         ]
     }
 
-    signingConfigs {
-        release {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            v2SigningEnabled true
-        }
-    }
 
     sourceSets {
         main {
+            main { jniLibs.srcDirs = ['libs'] }
             jniLibs.srcDirs = ['src/main/jniLibs']
         }
     }
@@ -48,59 +51,56 @@ android {
         debug {
             buildConfigField "boolean", "debug", "true"
             buildConfigField "String", "rkey", "\"${AppKey}\""
-            //测试环境
-            //buildConfigField "String", "charset", "\"GB18030\""
-            //buildConfigField "String", "socketIp", "\"192.168.0.2\""
-            //buildConfigField "String", "hostAddress", "\"http://192.168.0.2:8080/chatApp/\""
             //正式环境
             buildConfigField "String", "charset", "\"UTF-8\""
             //buildConfigField "String", "socketIp", "\"192.168.5.26\""
-            buildConfigField "String", "socketIp", "\"122.10.109.87\""
+            buildConfigField "String", "socketIp", "\"103.206.122.156\""
             //buildConfigField "String", "hostAddress", "\"http://app.1-liao.c
-            buildConfigField "String", "hostAddress", "\"http://122.10.109.87:8080/demo_app_encrypt/\""
+            buildConfigField "String", "hostAddress", "\"http://103.206.122.156:8080/demo_app_encrypt/\""
             //buildConfigField "String", "hostAddress", "\"http://192.168.5.26:8080/chatApp/\""
-            //minifyEnabled true//混淆
-            //shrinkResources true //删除无效引用
-            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            minifyEnabled true//混淆
+//            shrinkResources true //删除无效引用
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.release
         }
         //正式环境
         release {
             buildConfigField "String", "rkey", "\"${AppKey}\""
             buildConfigField "boolean", "debug", "false"
             buildConfigField "String", "charset", "\"UTF-8\""
-            buildConfigField "String", "socketIp", "\"106.15.88.38\""
-            buildConfigField "String", "hostAddress", "\"http://app.1-liao.cn/\""
+            buildConfigField "String", "socketIp", "\"103.206.122.156\""
+            buildConfigField "String", "hostAddress", "\"http://103.206.122.156:8080/demo_app_encrypt/\""
             minifyEnabled true//混淆
             shrinkResources true //删除无效引用
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            //signingConfig signingConfigs.release
         }
     }
 }
 
 
 dependencies {
-
-
-
     implementation 'me.samlss:timomenu:1.0.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
     ///implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
 //    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })
+    // https://mvnrepository.com/artifact/androidx.test.espresso/espresso-core
+    androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-core', version: '3.2.0'
+
     testImplementation 'junit:junit:4.12'
 
     //google multi dex
     //implementation 'com.android.support:multidex:1.0.3'
 
     //注解butter knife
-    implementation 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    // https://mvnrepository.com/artifact/com.jakewharton/butterknife
+    implementation group: 'com.jakewharton', name: 'butterknife', version: '10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
     //沉浸式状态栏
     implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
@@ -117,7 +117,7 @@ dependencies {
     //recycler view
     //implementation 'com.android.support:recyclerview-v7:28.1.1'
 // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
-    implementation group: 'androidx.recyclerview', name: 'recyclerview', version: '1.1.0'
+    api group: 'androidx.recyclerview', name: 'recyclerview', version: '1.1.0'
 
     //zhy ok http utils
     implementation 'com.zhy:okhttputils:2.6.2'
@@ -194,23 +194,20 @@ dependencies {
 
     //Android Material Design
     // https://mvnrepository.com/artifact/androidx.multidex/multidex
-    implementation group: 'androidx.multidex', name: 'multidex', version: '2.0.0'
+    api group: 'androidx.multidex', name: 'multidex', version: '2.0.0'
 
     //implementation 'com.android.support:design:27.1.1'
     implementation 'com.google.android.material:material:1.0.0'
     //美颜
 
     //视频播放
-    implementation('com.github.dueeeke.dkplayer:dkplayer-java:2.5.2') {
-        exclude group: 'org.slf4j', module: "slf4j-api"
-    }
-    implementation('com.github.dueeeke.dkplayer:dkplayer-ui:2.5.2') {
-        exclude group: 'org.slf4j', module: "slf4j-api"
-    }
-    implementation('com.github.dueeeke.dkplayer:dkplayer-armv7a:2.5.2') {
-        exclude group: 'org.slf4j', module: "slf4j-api"
-    }
-    implementation('com.github.dueeeke.dkplayer:dkplayer-x86:2.5.3') {
-        exclude group: 'org.slf4j', module: "slf4j-api"
-    }
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.2.2'
+
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-ui:3.2.2'
+
+    implementation 'com.github.dueeeke.dkplayer:player-exo:3.2.2'
+
+    implementation 'com.github.dueeeke.dkplayer:player-ijk:3.2.2'
+
+    implementation 'com.github.dueeeke.dkplayer:videocache:3.2.2'
 }

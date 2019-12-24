@@ -42,7 +42,7 @@
         android:layout_height="215dp">
 
         <!--红包-->
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/red_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,7 +50,7 @@
             android:visibility="gone" />
 
         <!--Recycler-->
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gift_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

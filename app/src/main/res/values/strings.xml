@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">1v1Demo</string>
+    <string name="app_name">华越蜜译</string>
 
     <!--通用-->
     <string name="rmb">元</string>
@@ -41,7 +41,7 @@
     <string name="go_set">去设置</string>
     <string name="notice_des">请前往设置打开应用悬浮窗权限，您会接到更多小哥哥、小姐姐来电哦~</string>
     <string name="update_now">立即更新</string>
-    <string name="own_company">版权所有&#160;@2019&#160;&#160;1v1Demo</string>
+    <string name="own_company">版权所有&#160;@2019&#160;&#160;华越蜜译</string>
     <string name="high_beauty">一对一直播交友平台</string>
     <string name="clear_all">清空</string>
     <string name="free_one">免费</string>
@@ -217,7 +217,7 @@
     <string name="checking">审核中</string>
 
     <!--提现明细-->
-    <string name="ali_pay_des">支付宝提现</string>
+    <string name="ali_pay_des">银行卡提现</string>
     <string name="we_chat_des">微信提现</string>
     <string name="month">月</string>
     <string name="all">全部</string>
@@ -444,16 +444,16 @@
     <string name="complain_des">投诉</string>
 
     <!--管理账户页面-->
-    <string name="alipay_account_number">支付宝账号</string>
+    <string name="alipay_account_number">银行卡账号</string>
     <string name="we_chat_account">微信账号管理</string>
-    <string name="alipay_account">支付宝账号管理</string>
-    <string name="alipay_name">支付宝姓名</string>
-    <string name="please_input_alipay_name">请输入支付宝姓名</string>
+    <string name="alipay_account">银行账号管理</string>
+    <string name="alipay_name">银行卡姓名</string>
+    <string name="please_input_alipay_name">请输入银行卡姓名</string>
     <string name="save_safely">安全修改</string>
     <string name="finish">完成</string>
     <string name="save_success">保存成功</string>
     <string name="save_fail">保存失败</string>
-    <string name="please_input_alipay_account">请输入支付宝账号</string>
+    <string name="please_input_alipay_account">请输入银行卡账号</string>
     <string name="note_one">温馨提示:</string>
     <string name="note_two">1.请填写微信中绑定银行卡时填写的真实姓名(请不要填昵称)</string>
     <string name="note_two_one">1.请确保支付宝已实名认证,并填写真实姓名(请不要填昵称)</string>

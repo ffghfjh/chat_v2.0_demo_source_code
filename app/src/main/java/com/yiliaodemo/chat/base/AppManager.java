@@ -5,6 +5,9 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
+import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
+import com.dueeeke.videoplayer.player.VideoViewConfig;
+import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.yiliaodemo.chat.bean.ChatUserInfo;
 import com.yiliaodemo.chat.constant.Constant;
 import com.yiliaodemo.chat.helper.SharedPreferenceHelper;
@@ -54,6 +57,14 @@ public class AppManager extends Application {
         JMessageClient.init(this, false);
         //离线鉴权初始化方法
 //        TiSDK.init(Constant.TI_KEY, this);
+        VideoViewManager.setConfig(VideoViewConfig.newBuilder()
+                //使用使用IjkPlayer解码
+                .setPlayerFactory(IjkPlayerFactory.create())
+                //使用ExoPlayer解码
+                //.setPlayerFactory(ExoMediaPlayerFactory.create())
+                //使用MediaPlayer解码
+               // .setPlayerFactory(AndroidMediaPlayerFactory.create())
+                .build());
     }
 
     public ChatUserInfo getUserInfo() {

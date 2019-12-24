@@ -73,7 +73,7 @@
     </FrameLayout>
 
     <!--下方列表-->
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@id/content_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

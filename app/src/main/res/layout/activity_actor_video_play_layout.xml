@@ -7,8 +7,12 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->
 <!--        android:layout_gravity="center" />-->
-
-    <com.dueeeke.videoplayer.player.IjkVideoView
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+    <com.dueeeke.videoplayer.player.VideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +25,7 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/play">
         </ImageView>
-    </com.dueeeke.videoplayer.player.IjkVideoView>
+    </com.dueeeke.videoplayer.player.VideoView>
     <ImageView
         android:id="@+id/cover_iv"
         android:layout_width="match_parent"

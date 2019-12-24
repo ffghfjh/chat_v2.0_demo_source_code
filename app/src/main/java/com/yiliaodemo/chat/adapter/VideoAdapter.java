@@ -24,33 +24,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.dueeeke.videoplayer.player.IjkVideoView;
-import com.dueeeke.videoplayer.player.PlayerConfig;
-import com.pili.pldroid.player.widget.PLVideoView;
+import com.dueeeke.videoplayer.player.VideoView;
 import com.yiliaodemo.chat.R;
 import com.yiliaodemo.chat.activity.ActorInfoOneActivity;
-import com.yiliaodemo.chat.activity.ActorVideoPlayActivity;
 import com.yiliaodemo.chat.activity.BigHouseActivity;
 import com.yiliaodemo.chat.activity.ChargeActivity;
-import com.yiliaodemo.chat.activity.MainActivity;
 import com.yiliaodemo.chat.activity.ReportActivity;
 import com.yiliaodemo.chat.activity.VideoChatOneActivity;
 import com.yiliaodemo.chat.activity.VipCenterActivity;
 import com.yiliaodemo.chat.base.AppManager;
-import com.yiliaodemo.chat.base.BaseActivity;
 import com.yiliaodemo.chat.base.BaseListResponse;
 import com.yiliaodemo.chat.base.BaseResponse;
 import com.yiliaodemo.chat.bean.ActorPlayBean;
 import com.yiliaodemo.chat.bean.BalanceBean;
-import com.yiliaodemo.chat.bean.Bean;
 import com.yiliaodemo.chat.bean.ChatUserInfo;
 import com.yiliaodemo.chat.bean.GiftBean;
 import com.yiliaodemo.chat.bean.GoldBean;
@@ -72,6 +64,7 @@ import com.yiliaodemo.chat.util.DevicesUtil;
 import com.yiliaodemo.chat.util.DialogUtil;
 import com.yiliaodemo.chat.util.ParamUtil;
 import com.yiliaodemo.chat.util.ToastUtil;
+import com.yiliaodemo.chat.widget.controller.TikTokController;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -79,10 +72,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import butterknife.BindView;
-import butterknife.OnClick;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import okhttp3.Call;
 import okhttp3.Request;
 
@@ -92,7 +81,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     private Context mContext;
     private Activity activity;
     private ArrayList<VideoBean> mDatas;
-    private final PlayerConfig playerConfig;
     private ActorPlayBean mActorPlayBean;
     private boolean mToReport = false;
     private int mActorId;//主播id
@@ -110,14 +98,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         this.activity = activity;
         getGiftList();//获取礼物相关
         mDialogLoading = DialogUtil.showLoadingDialog(activity);
-        playerConfig = new PlayerConfig.Builder()
-                .enableCache()
-                .usingSurfaceView()
-                .savingProgress()
-                .disableAudioFocus()
-                .setLooping()
-                .addToPlayerManager()
-                .build();
     }
 
     @NonNull
@@ -130,8 +110,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
          VideoBean videoBean = mDatas.get(position);
 
-//        holder.videoView.setUrl(mDatas.get(position).t_addres_url);
-//        holder.videoView.setPlayerConfig(playerConfig);
+//         holder.videoView.setUrl(mDatas.get(position).t_addres_url);
+//         TikTokController controller = new TikTokController(mContext);
+//         holder.videoView.setVideoController(controller); //设置控制器
+//         holder.videoView.setLooping(true);
 //        holder.videoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP);
 //        Glide.with(mContext).load(mDatas.get(position).t_handImg)
 //                .bitmapTransform(new RoundedCornersTransformation(mContext,100,0,RoundedCornersTransformation.CornerType.ALL))
@@ -149,7 +131,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public IjkVideoView videoView;
+        public VideoView videoView;
         ImageView mComplainIv;
         ImageView mCoverIv;
         ImageView mSmallHeadIv;
@@ -221,11 +203,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
      * 获取主播数据
      */
     private void getActorInfo(int fileId, int queryType, final int authorId, final ViewHolder holder, int position) {
-        holder.stopBtn.setVisibility(View.GONE);
+        //holder.stopBtn.setVisibility(View.GONE);
         holder.videoView.setUrl(mDatas.get(position).t_addres_url);
-        holder.videoView.setPlayerConfig(playerConfig);
-        holder.videoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP);
-        holder.videoView.start();
+        holder.videoView.setLooping(true);
+        TikTokController controller = new TikTokController(mContext);
+        holder.videoView.setVideoController(controller); //设置控制器
+        //holder.videoView.start(); //开始播放，不调用则不自动播放
         Log.d("palyVideo","播放视频2");
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("userId", getUserId());
@@ -543,8 +526,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
      */
     private void getActorInfo1(int fileId, int queryType, int authorId, final ViewHolder holder,int position) {
         holder.videoView.setUrl(mDatas.get(position).t_addres_url);
-        holder.videoView.setPlayerConfig(playerConfig);
-        holder.videoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP);
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("userId", getUserId());
         paramMap.put("coverConsumeUserId", String.valueOf(authorId));

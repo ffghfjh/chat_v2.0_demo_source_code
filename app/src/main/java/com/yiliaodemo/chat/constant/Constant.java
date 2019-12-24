@@ -36,10 +36,11 @@ public class Constant {
     // 对应的 秘钥
     public static final String TENCENT_CLOUD_SECRET_KEY = "zjHgpiNnyFzV4OTM0SknbAUYP1QZT7Wg";
     // bucketForObjectAPITest 所处在的地域
-    public static final String TENCENT_CLOUD_REGION = Region.AP_Chengdu.getRegion();
+    //public static final String TENCENT_CLOUD_REGION = Region.AP_Chengdu.getRegion();
+    public static final String TENCENT_CLOUD_REGION = "ap-bangkok";
     //public static final String TENCENT_CLOUD_REGION = "ap-chengdu";
     //存储桶
-    public static final String TENCENT_CLOUD_BUCKET = "chat-1300531024";
+    public static final String TENCENT_CLOUD_BUCKET = "chat1-1300531024";
 
     //三体云
     public static final String TTT_APP_ID = "0564473eb9b606a6040551122ff0662c";

@@ -24,6 +24,10 @@ public class ChargeListBean extends BaseBean {
     public BigDecimal t_money;
     public boolean isSelected = false;
 
+    public ChargeListBean(){
+
+    }
+
     public ChargeListBean(int t_id, int t_gold, String t_describe, BigDecimal t_money, boolean isSelected) {
         this.t_id = t_id;
         this.t_gold = t_gold;

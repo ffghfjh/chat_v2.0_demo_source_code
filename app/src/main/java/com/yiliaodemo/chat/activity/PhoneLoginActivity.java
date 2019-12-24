@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.CountDownTimer;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -134,6 +135,7 @@ public class PhoneLoginActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_tv: {//登录
+                Log.d("loginA","登录");
                 if (mAccountV.getVisibility() == View.VISIBLE) {//账号密码登录
                     requestAccountLogin();
                 } else {//短信验证码登录
@@ -253,6 +255,7 @@ public class PhoneLoginActivity extends BaseActivity {
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {
             @Override
             public void onResponse(BaseResponse<ChatUserInfo> response, int id) {
+                Log.d("loginA","登录响应:"+response.m_istatus);
                 dismissLoadingDialog();
                 if (response != null) {
                     if (response.m_istatus == NetCode.SUCCESS) {

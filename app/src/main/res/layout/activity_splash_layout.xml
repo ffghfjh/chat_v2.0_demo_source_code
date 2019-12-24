@@ -6,33 +6,34 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:contentDescription="@null"
+        android:src="@mipmap/qidong"
         android:scaleType="centerCrop" />
 
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:orientation="vertical">-->
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/demo_one"
-            android:contentDescription="@null" />
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/demo_one"-->
+<!--            android:contentDescription="@null" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="@string/high_beauty"
-            android:textColor="@color/gray_888892"
-            android:textSize="20sp" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="48dp"-->
+<!--            android:text="@string/high_beauty"-->
+<!--            android:textColor="@color/gray_888892"-->
+<!--            android:textSize="20sp" />-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
     <TextView
         android:layout_width="wrap_content"

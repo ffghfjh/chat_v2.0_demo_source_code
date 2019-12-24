@@ -625,7 +625,7 @@ public class TVCClient {
                 } else {
                     Log.i(TAG, "FinishUploadUGC Suc onResponse body : " + response.body().toString());
                     parseFinishRsp(response.body().string());
-                    parseFinishRsp(response.body().string());
+                    //parseFinishRsp(response.body().string());
                 }
             }
         });

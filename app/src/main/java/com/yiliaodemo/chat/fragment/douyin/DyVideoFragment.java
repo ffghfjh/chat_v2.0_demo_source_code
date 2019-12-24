@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dueeeke.videoplayer.player.IjkVideoView;
+import com.dueeeke.videoplayer.player.VideoView;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.yiliaodemo.chat.R;
@@ -50,7 +50,7 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
     private RecyclerView recyclerView;
     private ArrayList<VideoBean> mDatas = new ArrayList<>();
     private VideoAdapter mAdapter;
-    private IjkVideoView mVideoView;
+    private VideoView mVideoView;
     private ImageView stopView;
 
     public DyVideoFragment(){
@@ -84,13 +84,14 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
         mLayoutManager.setOnViewPagerListener(new OnViewPagerListener() {
             @Override
             public void onInitComplete(View view) {
-                view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
-                //playVideo(0, view);
+                //view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
+                playVideo(0, view);
             }
 
             @Override
             public void onPageSelected(int position, boolean isBottom, View view) {
-                view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
+                //view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
+                Log.d("getVideoByPage","list大小："+mDatas.size());
                 playVideo(position, view);
                 if(position==mAdapter.getItemCount()-1){
                     page = page +1;
@@ -122,13 +123,17 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
      * 播放视频
      */
     private void playVideo(int position, View view) {
-        Log.d("palyVideo","播放视频1");
+        //VideoBean bean = mDatas.get(position);
         stopView=view.findViewById(R.id.paly_stop);
         stopView.setVisibility(View.GONE);
-        if (view != null) {
-            mVideoView = view.findViewById(R.id.video_view);
-            mVideoView.start();
-        }
+        VideoView mVideoView = view.findViewById(R.id.video_view);
+        //mVideoView.setUrl(bean.t_addres_url);
+        mVideoView.setLooping(true);
+        //Log.d("palyVideo","播放视频;"+bean.t_id+","+bean.t_addres_url);
+//        for(VideoBean bean1:mDatas){
+//            Log.d("playVideoByPageM",bean1.t_id+"");
+//        }
+        mVideoView.start();
     }
 
     /**
@@ -137,11 +142,10 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
     private void releaseVideo(View view) {
         stopView=view.findViewById(R.id.paly_stop);
         stopView.setVisibility(View.GONE);
-        if (view != null) {
-            IjkVideoView videoView = view.findViewById(R.id.video_view);
-            videoView.stopPlayback();
-            view.findViewById(R.id.paly_stop).setVisibility(View.VISIBLE);
-        }
+        VideoView mVideoView = view.findViewById(R.id.video_view);
+        mVideoView.release();
+        view.findViewById(R.id.paly_stop).setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -167,7 +171,7 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
         Log.d("getVideo","onDestroy");
         super.onDestroy();
         if(mVideoView!=null){
-            mVideoView.stopPlayback();
+            mVideoView.release();
         }
     }
 
@@ -179,7 +183,7 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
      * 获取主播视频照片
      */
     private void getVideoList1(int page) {
-        mDatas.clear();
+        //mDatas.clear();
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("userId", mContext.getUserId());
         paramMap.put("page", String.valueOf(page));
@@ -225,8 +229,9 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
                             List<VideoBean> focusBeans = pageBean.data;
                             Log.d("getVideos","获取视频成功："+focusBeans.size());
                             if (focusBeans != null) {
-                                int size = focusBeans.size();
+                                Log.d("getVideo","获取视频：page:"+page);
                                 for(VideoBean videoBean : focusBeans){
+                                    Log.d("getVideo",videoBean.t_id+"");
                                     mDatas.add(videoBean);
                                 }
                             }

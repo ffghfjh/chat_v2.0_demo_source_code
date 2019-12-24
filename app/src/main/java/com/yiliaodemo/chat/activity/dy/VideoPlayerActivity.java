@@ -7,15 +7,16 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.dueeeke.videoplayer.player.IjkVideoView;
-import com.dueeeke.videoplayer.player.PlayerConfig;
+
+import com.dueeeke.videoplayer.player.VideoView;
 import com.yiliaodemo.chat.R;
+
 
 public class VideoPlayerActivity extends AppCompatActivity {
 
-    IjkVideoView mVideoView;
+    VideoView mVideoView;
     ImageView stopView;
-    PlayerConfig playerConfig;
+    //PlayerConfig playerConfig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +24,17 @@ public class VideoPlayerActivity extends AppCompatActivity {
         mVideoView = findViewById(R.id.video_player);
         stopView = findViewById(R.id.paly_stop_1);
         String videoUrl = getIntent().getStringExtra("url");
-        playerConfig = new PlayerConfig.Builder()
-                .enableCache()
-                .usingSurfaceView()
-                .savingProgress()
-                .disableAudioFocus()
-                .setLooping()
-                .addToPlayerManager()
-                .build();
+//        playerConfig = new PlayerConfig.Builder()
+//                .enableCache()
+//                .usingSurfaceView()
+//                .savingProgress()
+//                .disableAudioFocus()
+//                .setLooping()
+//                .addToPlayerManager()
+//                .build();
         mVideoView.setUrl(videoUrl);
-        mVideoView.setPlayerConfig(playerConfig);
-        mVideoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP);
+//        mVideoView.setPlayerConfig(playerConfig);
+//        mVideoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP);
         playVideo();
         mVideoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +73,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     public void onDestroy() {
         Log.d("getVideo","onDestroy");
         super.onDestroy();
-        mVideoView.stopPlayback();
+        mVideoView.release();
     }
 
 
@@ -86,13 +87,21 @@ public class VideoPlayerActivity extends AppCompatActivity {
         }
     }
 
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        if(!mVideoView.onBackPressed()){
+//            super.onBackPressed();
+//        }
+//    }
+
     /**
      * 停止播放
      */
     private void releaseVideo() {
         if (mVideoView != null) {
             stopView.setVisibility(View.VISIBLE);
-            mVideoView.stopPlayback();
+            mVideoView.release();
         }
     }
 }

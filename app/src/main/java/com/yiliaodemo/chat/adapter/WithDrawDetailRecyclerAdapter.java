@@ -65,7 +65,7 @@ public class WithDrawDetailRecyclerAdapter extends RecyclerView.Adapter<Recycler
             //方式  0.支付宝 1.微信
             int type = bean.t_type;
             if (type == 0) {
-                mHolder.mTypeIv.setBackgroundResource(R.drawable.alipay_round);
+                mHolder.mTypeIv.setBackgroundResource(R.mipmap.yh);
                 mHolder.mTypeTv.setText(mContext.getResources().getString(R.string.ali_pay_des));
             } else {
                 mHolder.mTypeIv.setBackgroundResource(R.drawable.we_chat_round);
