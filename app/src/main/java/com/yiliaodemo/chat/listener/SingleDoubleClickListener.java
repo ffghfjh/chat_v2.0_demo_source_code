@@ -17,6 +17,8 @@ import android.view.View;
 
 public class SingleDoubleClickListener implements View.OnTouchListener {
 
+
+    int lastX, lastY;
     //双击间四百毫秒延时
 
     private static int timeout = 400;
@@ -45,50 +47,85 @@ public class SingleDoubleClickListener implements View.OnTouchListener {
 
     }
 
+
     @Override
-
     public boolean onTouch(View v, MotionEvent event) {
+//         int action = event.getAction();
+//         switch (action){
+//             case MotionEvent.ACTION_DOWN:{
+//                 clickCount++;
+//                 handler.postDelayed(new Runnable() {
+//
+//                     @Override
+//
+//                     public void run() {
+//
+//                         if (clickCount == 1) {
+//
+//                             myClickCallBack.oneClick();
+//
+//                         } else if (clickCount == 2) {
+//
+//                             myClickCallBack.doubleClick();
+//                         }
+//                         handler.removeCallbacksAndMessages(null);
+//
+//                         //清空handler延时，并防内存泄漏
+//
+////计数清零
+//
+//                         clickCount = 0;
+//
+//                     }
+//                     //延时timeout后执行run方法中的代码
+//
+//                 }, timeout);
+//                 return true;
+//             }
+//         }
+//         return false;
+        int y = (int) event.getY();
+        int x = (int) event.getX();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                // 记录触摸点坐标
+                lastY = y;
+                lastX = x;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                break;
+            case MotionEvent.ACTION_UP:
+                //作为点击事件
+                if (Math.abs(y - lastY) < 5 && Math.abs(x - lastX) < 5) {
+                    //如果横纵坐标的偏移量都小于五个像素，那么就把它当做点击事件触发
+                    clickCount++;
+                    handler.postDelayed(new Runnable() {
 
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        @Override
 
-            clickCount++;
+                        public void run() {
 
-            handler.postDelayed(new Runnable() {
+                            if (clickCount == 1) {
 
-                @Override
+                                myClickCallBack.oneClick();
 
-                public void run() {
+                            } else if (clickCount == 2) {
 
-                    if (clickCount == 1) {
+                                myClickCallBack.doubleClick();
+                            }
+                            handler.removeCallbacksAndMessages(null);
 
-                        myClickCallBack.oneClick();
-
-                    } else if (clickCount == 2) {
-
-                        myClickCallBack.doubleClick();
-
-                    }
-
-                    handler.removeCallbacksAndMessages(null);
-
-                    //清空handler延时，并防内存泄漏
-
-//计数清零
-
-                    clickCount = 0;
-
+                            //清空handler延时，并防内存泄漏
+                            //计数清零
+                            clickCount = 0;
+                        }
+                        //延时timeout后执行run方法中的代码
+                    }, timeout);
                 }
-
-                //延时timeout后执行run方法中的代码
-
-            }, timeout);
-
+                break;
         }
-
-        //让点击事件继续传播，方便再给View添加其他事件监听
-
-        return true;
-
+        return false;
     }
+
 
 }

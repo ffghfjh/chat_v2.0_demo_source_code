@@ -17,6 +17,7 @@ import com.yiliaodemo.chat.adapter.HomeFragmentAdapter;
 import com.yiliaodemo.chat.base.AppManager;
 import com.yiliaodemo.chat.base.BaseFragment;
 import com.yiliaodemo.chat.bean.ChatUserInfo;
+import com.yiliaodemo.chat.fragment.douyin.Dy2VideoFragment;
 import com.yiliaodemo.chat.fragment.douyin.DyVideoFragment;
 import com.yiliaodemo.chat.fragment.near.NearFragment;
 import com.yiliaodemo.chat.helper.SharedPreferenceHelper;
@@ -61,7 +62,7 @@ public class HomeOneFragment extends BaseFragment implements View.OnClickListene
     NewManFragment newManFragment = new NewManFragment();
     NearFragment mNearFragment = new NearFragment();
     //VideoFragment mVideoFragment = new VideoFragment();
-    DyVideoFragment mVideoFragment = new DyVideoFragment();
+    Dy2VideoFragment mVideoFragment = new Dy2VideoFragment();
     FansFragment mFansFragment;
 //    //推荐
 //    private TextView mRecommendBigTv;

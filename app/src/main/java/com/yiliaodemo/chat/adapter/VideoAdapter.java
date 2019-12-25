@@ -83,7 +83,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     private ArrayList<VideoBean> mDatas;
     private ActorPlayBean mActorPlayBean;
     private boolean mToReport = false;
-    private int mActorId;//主播id
+    public int mActorId;//主播id
     //加载dialog
     private Dialog mDialogLoading;
     //礼物相关
@@ -131,7 +131,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public VideoView videoView;
+        VideoView videoView;
         ImageView mComplainIv;
         ImageView mCoverIv;
         ImageView mSmallHeadIv;
@@ -938,6 +938,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         goldBeans.add(5, six);
         return goldBeans;
     }
+
     /**
      * 点赞
      */

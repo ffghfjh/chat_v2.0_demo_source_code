@@ -84,13 +84,13 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
         mLayoutManager.setOnViewPagerListener(new OnViewPagerListener() {
             @Override
             public void onInitComplete(View view) {
-                //view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
+                view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
                 playVideo(0, view);
             }
 
             @Override
             public void onPageSelected(int position, boolean isBottom, View view) {
-                //view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
+                view.findViewById(R.id.paly_stop).setVisibility(View.GONE);
                 Log.d("getVideoByPage","list大小："+mDatas.size());
                 playVideo(position, view);
                 if(position==mAdapter.getItemCount()-1){
@@ -123,16 +123,13 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
      * 播放视频
      */
     private void playVideo(int position, View view) {
-        //VideoBean bean = mDatas.get(position);
+        VideoBean bean = mDatas.get(position);
         stopView=view.findViewById(R.id.paly_stop);
         stopView.setVisibility(View.GONE);
-        VideoView mVideoView = view.findViewById(R.id.video_view);
-        //mVideoView.setUrl(bean.t_addres_url);
+        mVideoView = view.findViewById(R.id.video_view);
+        mVideoView.setUrl(bean.t_addres_url);
         mVideoView.setLooping(true);
-        //Log.d("palyVideo","播放视频;"+bean.t_id+","+bean.t_addres_url);
-//        for(VideoBean bean1:mDatas){
-//            Log.d("playVideoByPageM",bean1.t_id+"");
-//        }
+        Log.d("palyVideo","播放视频;"+bean.t_id+","+bean.t_addres_url);
         mVideoView.start();
     }
 
@@ -142,7 +139,7 @@ public class DyVideoFragment extends BaseFragment implements View.OnClickListene
     private void releaseVideo(View view) {
         stopView=view.findViewById(R.id.paly_stop);
         stopView.setVisibility(View.GONE);
-        VideoView mVideoView = view.findViewById(R.id.video_view);
+        mVideoView = view.findViewById(R.id.video_view);
         mVideoView.release();
         view.findViewById(R.id.paly_stop).setVisibility(View.VISIBLE);
 
